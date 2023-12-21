@@ -6,7 +6,8 @@
  */
 int main(void)
 {
-	char message[MAX_MESSAGE_LENGTH];
+	char message[MAX_INPUT_LENGTH];
+	char *args[MAX_ARGS];
 
 	while (1)
 	{
@@ -21,7 +22,12 @@ int main(void)
 		/*Remove the newline character*/
 		message[strcspn(message, "\n")] = '\0';
 
-		execute_command(message);
+		parse_message(message, args);
+
+		if (args[0] != NULL)
+		{
+			execute_command(args);
+		}
 	}
 	shell_print("Shell exiting...\n");
 

@@ -10,5 +10,8 @@
 
 void prompt_display(void);
 void shell_print(const char *str);
+ssize_t getline(char **ptr, size_t *k);
+void execute_command(const char *message);
+void parsing_input(char *string, char **args);
 
 #endif/*SIMPLESHELL_H*/
